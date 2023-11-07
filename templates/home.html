@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Table Management</h1>
+<form method="POST" action="{{url_for('index')}}">
+    <label for="name">Enter name</label>
+    <input type="text" id="fname" name="fname" placeholder="Enter your name here">
+    <label for="filepath">Enter file path</label>
+    <input type="text" id="filepath" name="filepath" placeholder="Enter your file path">
+    <button type="submit">Submit</button>
+</form>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>File path</th>
+  </tr>
+    {% for index in range(fname|length) %}
+  <tr>
+    <td>{{ fname[index] }}</td>
+    <td>{{ filepath[index] }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
